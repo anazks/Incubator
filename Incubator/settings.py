@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-pefc$43r%s9xr#k^g5mb50#g#gcltafvvx0a6@f^cl=n=)89bj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Home',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -53,6 +55,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Incubator.urls'
+
+CORS_ALLOWED_ORIGINS = [
+  
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+    "http://localhost:3000"
+]
 
 TEMPLATES = [
     {
